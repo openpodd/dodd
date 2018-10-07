@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import { AsyncStorage } from 'react-native';
 
 const slides = [
     {
@@ -24,11 +25,10 @@ const slides = [
 
 export default class OnBoardingScreen extends React.Component {
 
-
-
-    _onDone = () => {
+    _onDone = async () => {
         // User finished the introduction. Show real app through
         // navigation or simply by controlling state
+        await AsyncStorage.setItem('seenOnBoarding', 'true')
         this.props.navigation.navigate('Main')
     }
 

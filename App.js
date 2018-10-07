@@ -5,6 +5,7 @@ import { createBottomTabNavigator, createSwitchNavigator } from 'react-navigatio
 import ReportMap from './app/screens/ReportMap';
 import ReportList from './app/screens/ReportList';
 import OnBoarding from './app/screens/Onboarding';
+import AppLoading from './app/screens/AppLoading';
 
 const Main = createBottomTabNavigator({
   Map: ReportMap,
@@ -13,6 +14,7 @@ const Main = createBottomTabNavigator({
 
 // using switchNavigator so user can't click back button from mainNavigator
 const App = createSwitchNavigator({
+  AppLoading: AppLoading,
   OnBoarding: OnBoarding,
   Main: Main,
 })
