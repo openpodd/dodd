@@ -1,24 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import OnBoarding from './app/screens/onboarding';
-import ReportDetail from './app/screens/reportDetail';
-import ReportForm from './app/screens/reportForm';
+import { createBottomTabNavigator } from 'react-navigation'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Hello</Text>
-      </View>
-    );
-  }
-}
+import ReportMap from './app/screens/ReportMap';
+import ReportList from './app/screens/ReportList'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+const App = createBottomTabNavigator({
+  Map: ReportMap,
+  List: ReportList
 });
+
+export default App;
