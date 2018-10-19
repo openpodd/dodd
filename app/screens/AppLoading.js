@@ -18,7 +18,13 @@ export default class AppLoading extends React.Component {
     
         // This will switch to the App screen or Auth screen and this loading
         // screen will be unmounted and thrown away.
-        this.props.navigation.navigate(seenOnBoarding ? 'Main' : 'OnBoarding');
+        if (seenOnBoarding) {
+            const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
+            this.props.navigation.navigate(isLoggedIn ? 'Tab' : 'Participate');
+            
+        } else {    
+            this.props.navigation.navigate('OnBoarding');
+        }
       };
 
     render() {
